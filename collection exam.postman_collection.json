@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "cb369d63-c8a7-4744-b05f-c52a5a9c481c",
+		"name": "collection exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32422389"
+	},
+	"item": [
+		{
+			"name": "addsubtask",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "titre",
+							"value": "titreajouter",
+							"type": "text"
+						},
+						{
+							"key": "complete",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb.onrender.com/api/exam/tasks/subtasks/1/1",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"tasks",
+						"subtasks",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "https://examfinalserviceweb.onrender.com/api/exam/addTask",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tacheId\": 3,\r\n    \"titre\": \"Sample Task\",\r\n    \"complete\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://examfinalserviceweb.onrender.com/api/exam/tasks/subtasks/1/1",
+							"protocol": "https",
+							"host": [
+								"examfinalserviceweb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"exam",
+								"tasks",
+								"subtasks",
+								"1",
+								"1"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 02 May 2024 03:30:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "87d4ef26fab933fa-YUL"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-2hLVzv7gRtT9lOqGOLEjr+J1pYs\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "3fdcb066-785f-407c"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"tache_id\": 3,\n    \"titre\": \"Sample Task\",\n    \"complete\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "createuser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"courriel\": \"test@test.tes\",\r\n    \"password\" : \"testpass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb-1.onrender.com/api/exam/users",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb-1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCle",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n        \"userId\": 49,\r\n        \"password\" : \"testpass\"\r\n        \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb-1.onrender.com/api/exam/users/updateCle",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb-1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"users",
+						"updateCle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getall",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://examfinalserviceweb-1.onrender.com/api/exam/tous/1",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb-1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"tous",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addtask",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "titre",
+							"value": "Sample Tasks",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is a sample task",
+							"type": "text"
+						},
+						{
+							"key": "dateDebut",
+							"value": "2024-05-01",
+							"type": "text"
+						},
+						{
+							"key": "dateEcheance",
+							"value": "2024-05-15",
+							"type": "text"
+						},
+						{
+							"key": "userId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb.onrender.com/api/exam/addTask",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"addTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficherdetail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://examfinalserviceweb-1.onrender.com/api/exam/taskDetails/1/1",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb-1",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"taskDetails",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatetache",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tacheId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "titre",
+							"value": "tachemodifier",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "descmodif",
+							"type": "text"
+						},
+						{
+							"key": "dateDebut",
+							"value": "2024-12-01",
+							"type": "text"
+						},
+						{
+							"key": "dateEcheance",
+							"value": "2024-12-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb.onrender.com/api/exam/updateTask/1",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"updateTask",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTasks",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tacheId",
+							"value": "58",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb.onrender.com/api/exam/deleteTask/1",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"deleteTask",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatesoustache",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tacheId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "titre",
+							"value": "testmodif",
+							"type": "text"
+						},
+						{
+							"key": "complete",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb.onrender.com/api/exam/tasks/modsubtasks/1",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"tasks",
+						"modsubtasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletesub-task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "cle_api",
+						"value": "1eaf1060-fe3c-4128-b03c-1ffc87",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tacheId",
+							"value": "37",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://examfinalserviceweb.onrender.com/api/exam/tasks/delsubtasks/1",
+					"protocol": "https",
+					"host": [
+						"examfinalserviceweb",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"exam",
+						"tasks",
+						"delsubtasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

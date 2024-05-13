@@ -1,0 +1,652 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mui/mui-toolpad/v0.1.54/docs/schemas/v1/definitions.json#properties/Page
+
+apiVersion: v1
+kind: page
+spec:
+  title: page1
+  display: shell
+  authorization:
+    allowAll: true
+  content:
+    - component: DataGrid
+      name: dataGrid
+      props:
+        rows:
+          $$jsExpression: getall.rows
+        columns:
+          - field: id
+            type: number
+          - field: utilisateur_id
+            type: number
+          - field: titre
+            type: string
+          - field: description
+            type: string
+          - field: date_debut
+            type: dateTime
+          - field: date_echeance
+            type: dateTime
+          - field: complete
+            type: number
+    - component: Form
+      name: form
+      props:
+        submitButtonText: null
+        onSubmit:
+          $$jsExpressionAction: await ajouter.call();
+      children:
+        - component: Text
+          name: text2
+          props:
+            value: Ajouter tache
+        - component: PageRow
+          name: pageRow2
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text3
+              props:
+                value: titre
+            - component: TextField
+              name: textField2
+        - component: PageRow
+          name: pageRow3
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text4
+              props:
+                value: description
+            - component: TextField
+              name: textField3
+        - component: PageRow
+          name: pageRow4
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text5
+              props:
+                value: "date commencement "
+            - component: DatePicker
+              name: datePicker
+        - component: PageRow
+          name: pageRow5
+          props:
+            justifyContent: start
+          children:
+            - component: PageColumn
+              name: pageColumn1
+              layout:
+                columnSize: 1
+              children:
+                - component: Text
+                  name: text6
+                  layout:
+                    columnSize: 1
+                  props:
+                    value: date echence
+                - component: Text
+                  name: text27
+                  props:
+                    value: ""
+            - component: DatePicker
+              name: datePicker1
+    - component: Form
+      name: form1
+      props:
+        onSubmit:
+          $$jsExpressionAction: await delete.call();
+      children:
+        - component: Text
+          name: text7
+          props:
+            value: delete tache
+        - component: PageRow
+          name: pageRow6
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text8
+              props:
+                value: tacheId
+            - component: TextField
+              name: textField4
+    - component: Form
+      name: form2
+      children:
+        - component: Text
+          name: text9
+          props:
+            value: metre a jour tache
+        - component: PageRow
+          name: pageRow7
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text10
+              props:
+                value: tache id
+            - component: TextField
+              name: textField5
+        - component: PageRow
+          name: pageRow8
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text11
+              props:
+                value: titre
+            - component: TextField
+              name: textField6
+        - component: PageRow
+          name: pageRow9
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text12
+              props:
+                value: description
+            - component: TextField
+              name: textField7
+        - component: PageRow
+          name: pageRow10
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text13
+              props:
+                value: date Debut
+            - component: DatePicker
+              name: datePicker2
+        - component: PageRow
+          name: pageRow11
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text14
+              props:
+                value: date echeance
+            - component: DatePicker
+              name: datePicker3
+      props:
+        onSubmit:
+          $$jsExpressionAction: await updateTache.call();
+    - component: Container
+      name: container
+      children:
+        - component: Text
+          name: text
+          props:
+            value: afficher detail
+        - component: PageRow
+          name: pageRow
+          props:
+            justifyContent: start
+          children:
+            - component: PageColumn
+              name: pageColumn2
+              layout:
+                columnSize: 1
+              children:
+                - component: Text
+                  name: text1
+                  layout:
+                    columnSize: 1
+                  props:
+                    value: id de la tache
+                - component: Text
+                  name: text15
+                  props:
+                    value:
+                      $$jsExpression: afficherdetail2.data
+                - component: Text
+                  name: text16
+                  props:
+                    value:
+                      $$jsExpression: afficherdetail1.data
+            - component: PageColumn
+              name: pageColumn
+              layout:
+                columnSize: 1
+              children:
+                - component: TextField
+                  name: textField
+                  layout:
+                    columnSize: 1
+                - component: DataGrid
+                  name: dataGrid1
+                  props:
+                    rows:
+                      $$jsExpression: afficherdetail.rows
+                    columns:
+                      - field: titre
+                        type: string
+                      - field: complete
+                        type: number
+    - component: Form
+      name: form4
+      children:
+        - component: Text
+          name: text17
+          props:
+            value: ajouter sous-tache
+        - component: PageRow
+          name: pageRow13
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text18
+              props:
+                value: tache id
+            - component: TextField
+              name: textField9
+        - component: PageRow
+          name: pageRow14
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text19
+              props:
+                value: titre
+            - component: TextField
+              name: textField10
+        - component: PageRow
+          name: pageRow15
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text20
+              props:
+                value: complete
+            - component: TextField
+              name: textField11
+      props:
+        onSubmit:
+          $$jsExpressionAction: await ajouterSousTache.call();
+    - component: Form
+      name: form5
+      children:
+        - component: Text
+          name: text21
+          props:
+            value: metre a jour sous tache
+        - component: PageRow
+          name: pageRow16
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text22
+              props:
+                value: tache id
+            - component: TextField
+              name: textField12
+        - component: PageRow
+          name: pageRow17
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text23
+              props:
+                value: titre
+            - component: TextField
+              name: textField13
+        - component: PageRow
+          name: pageRow18
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text24
+              props:
+                value: complete
+            - component: TextField
+              name: textField14
+      props:
+        onSubmit:
+          $$jsExpressionAction: await updateSousTache.call();
+    - component: Form
+      name: form6
+      props:
+        onSubmit:
+          $$jsExpressionAction: await deleteSousTache.call();
+      children:
+        - component: Text
+          name: text25
+          props:
+            value: delete sous tache
+        - component: PageRow
+          name: pageRow19
+          props:
+            justifyContent: start
+          children:
+            - component: Text
+              name: text26
+            - component: TextField
+              name: textField15
+  queries:
+    - name: getall
+      mode: query
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb-1.onrender.com/api/exam/tous/"+parameters.user_id'
+        headers:
+          - name: cle_api
+            value:
+              $$jsExpression: parameters.cle_api
+        method: GET
+        searchParams: []
+      parameters:
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+        - name: user_id
+          value:
+            $$jsExpression: page.parameters.userId
+
+    - name: ajouterSousTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb.onrender.com/api/exam/tasks/addsubtasks/"+parameters.userId'
+        headers:
+          - name: cle_api
+            value:
+              $$jsExpression: parameters.cle_api
+        body:
+          kind: urlEncoded
+          content:
+            - name: tacheId
+              value:
+                $$jsExpression: parameters.tacheId
+            - name: titre
+              value:
+                $$jsExpression: parameters.titre
+            - name: complete
+              value:
+                $$jsExpression: parameters.complete
+        method: POST
+        searchParams: []
+      parameters:
+        - name: userId
+          value:
+            $$jsExpression: textField.value
+        - name: cle_api
+          value:
+            $$jsExpression: textField1.value
+        - name: tacheId
+          value:
+            $$jsExpression: textField9.value
+        - name: titre
+          value:
+            $$jsExpression: textField10.value
+        - name: complete
+          value:
+            $$jsExpression: textField11.value
+    - name: updateSousTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb.onrender.com/api/tasks/modsubtasks/"+parameters.userId'
+        searchParams:
+          - name: tacheId
+            value:
+              $$jsExpression: parameters.tacheId
+          - name: titre
+            value:
+              $$jsExpression: parameters.tacheId
+          - name: complete
+            value:
+              $$jsExpression: parameters.complete
+        headers:
+          - name: cle_api
+            value:
+              $$jsExpression: parameters.cle_api
+        method: PUT
+      parameters:
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+        - name: tacheId
+          value:
+            $$jsExpression: textField12.value
+        - name: titre
+          value:
+            $$jsExpression: textField13.value
+        - name: complete
+          value:
+            $$jsExpression: textField14.value
+        - name: userId
+          value:
+            $$jsExpression: page.parameters.userId
+    - name: deleteSousTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb.onrender.com/api/exam/tasks/delsubtasks/"+parameters.userId'
+        headers: []
+        body:
+          kind: urlEncoded
+          content:
+            - name: tacheId
+              value:
+                $$jsExpression: parameters.tacheId
+        method: DELETE
+        searchParams: []
+      parameters:
+        - name: userId
+          value:
+            $$jsExpression: page.parameters.userId
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+        - name: tacheId
+          value:
+            $$jsExpression: textField15.value
+
+    - name: updateTache
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb.onrender.com/api/exam/updateTask/"+parameters.userId'
+        headers: []
+        method: POST
+        body:
+          kind: urlEncoded
+          content:
+            - name: tacheId
+              value:
+                $$jsExpression: parameters.tacheId
+            - name: titre
+              value:
+                $$jsExpression: parameters.titre
+            - name: description
+              value:
+                $$jsExpression: parameters.desc
+            - name: dateDebut
+              value:
+                $$jsExpression: parameters.datedebut
+            - name: dateEcheance
+              value:
+                $$jsExpression: parameters.dateEcheance
+        searchParams: []
+      parameters:
+        - name: userId
+          value:
+            $$jsExpression: page.parameters.userId
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+        - name: tacheId
+          value:
+            $$jsExpression: textField5.value
+        - name: titre
+          value:
+            $$jsExpression: textField6.value
+        - name: desc
+          value:
+            $$jsExpression: textField7.value
+        - name: dateDebut
+          value:
+            $$jsExpression: String(datePicker2.value)
+        - name: dateEcheance
+          value:
+            $$jsExpression: String(datePicker3.value)
+    - name: afficherdetail
+      mode: query
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb-1.onrender.com/api/exam/taskDetails/"+parameters.userId+"/"+parameters.tacheId'
+        headers:
+          [{ name: cle_api, value: { $$jsExpression: parameters.cle_api } }]
+        method: GET
+        searchParams: []
+        transform: return data.sous_taches;
+        transformEnabled: true
+      parameters:
+        - name: userId
+          value:
+            $$jsExpression: page.parameters.userId
+        - name: tacheId
+          value:
+            $$jsExpression: textField.value
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+    - name: ajouter
+      mode: mutation
+      query:
+        kind: rest
+        url: https://examfinalserviceweb.onrender.com/api/exam/addTask
+        headers:
+          - name: cle_api
+            value:
+              $$jsExpression: parameters.cle_api
+        body:
+          kind: urlEncoded
+          content:
+            - name: titre
+              value:
+                $$jsExpression: parameters.titre
+            - name: description
+              value:
+                $$jsExpression: parameters.desc
+            - name: dateDebut
+              value:
+                $$jsExpression: parameters.datedebut
+            - name: dateEcheance
+              value:
+                $$jsExpression: parameters.echeance
+            - name: userId
+              value:
+                $$jsExpression: parameters.id
+        method: POST
+        searchParams: []
+      parameters:
+        - name: id
+          value:
+            $$jsExpression: page.parameters.userId
+        - name: titre
+          value:
+            $$jsExpression: textField2.value
+        - name: desc
+          value:
+            $$jsExpression: textField3.value
+        - name: datedebut
+          value:
+            $$jsExpression: String(datePicker.value)
+        - name: echeance
+          value:
+            $$jsExpression: String(datePicker1.value)
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+    - name: delete
+      mode: mutation
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb.onrender.com/api/deleteTask/"+parameters.userId'
+        headers:
+          [{ name: cle_api, value: { $$jsExpression: parameters.cle_api } }]
+        method: GET
+        searchParams: []
+      parameters:
+        - name: userId
+          value:
+            $$jsExpression: page.parameters.userId
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+    - name: afficherdetail1
+      mode: query
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb-1.onrender.com/api/exam/taskDetails/"+parameters.userId+"/"+parameters.tacheId'
+        searchParams: []
+        headers:
+          - name: cle_api
+            value:
+              $$jsExpression: parameters.cle_api
+        method: GET
+        transform: return String(data.description);
+        transformEnabled: true
+      parameters:
+        - name: userId
+          value:
+            $$jsExpression: page.parameters.userId
+        - name: tacheId
+          value:
+            $$jsExpression: textField.value
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+    - name: afficherdetail2
+      mode: query
+      query:
+        kind: rest
+        url:
+          $$jsExpression: '"https://examfinalserviceweb-1.onrender.com/api/exam/taskDetails/"+parameters.userId+"/"+parameters.tacheId'
+        searchParams: []
+        headers:
+          - name: cle_api
+            value:
+              $$jsExpression: parameters.cle_api
+        method: GET
+        transform: return String(data.titre);
+        transformEnabled: true
+      parameters:
+        - name: userId
+          value:
+            $$jsExpression: page.parameters.userId
+        - name: tacheId
+          value:
+            $$jsExpression: textField.value
+        - name: cle_api
+          value:
+            $$jsExpression: page.parameters.cle_api
+  parameters:
+    - name: userId
+      value: "1"
+    - name: cle_api
+      value: 1eaf1060-fe3c-4128-b03c-1ffc87
